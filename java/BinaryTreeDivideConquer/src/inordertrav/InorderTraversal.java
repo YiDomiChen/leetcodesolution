@@ -51,7 +51,10 @@ public class InorderTraversal {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		String s = "taq";
+		char[] ca = s.toCharArray();
+		Arrays.sort(ca);
+		
 	}
 
 }
