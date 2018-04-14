@@ -16,11 +16,9 @@ public class TrimBST {
 			return null;
 		}
 		
-		TreeNode left = root.left;
 		if (root.val < L) {
 			return helper(root.right, L, R);
 		}
-		TreeNode right = root.right;
 		if (root.val > R) {
 			return helper(root.left, L, R);
 		}

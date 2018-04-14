@@ -22,30 +22,23 @@ import utils.*;
 public class AddTwoNum {
 	
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-		ListNode head = null, node = null;
 		int carry = 0;
-		while(l1 != null || l2 != null || carry != 0) {
-			int var1 = l1 == null ? 0 : l1.val;
-			int var2 = l2 == null ? 0 : l2.val;
-			 
-			int sum = (var1 + var2 + carry) % 10;
-			carry = (var1 + var2 + carry) / 10;
-			if(head == null) {
-				head = new ListNode(sum);
-				node = head;
-			}
-			else {
-				ListNode next = new ListNode(sum);
-				node.next = next;
-				node = next;
-			}
+		
+		ListNode prev = new ListNode(-1);
+		ListNode head = prev;
+		while (l1 != null || l2 != null || carry != 0) {
+			int a = l1 == null ? 0 : l1.val;
+			int b = l2 == null ? 0 : l2.val;
+			int sum = (a + b + carry) / 10;
+			carry = (a + b + carry) % 10;
+			ListNode cur = new ListNode(sum);
+			prev.next = cur;
 			
-			l1 = l1 == null ? null : l1.next;
-			l2 = l2 == null ? null : l2.next;
-			
+			l1 = l1 == null? null : l1.next;
+			l2 = l2 == null? null : l2.next;
 		}
 		
-		return head;
+		return head.next;
     }
 	
 	public static void main(String[] args) {
